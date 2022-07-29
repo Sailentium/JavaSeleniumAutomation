@@ -4,11 +4,9 @@ import io.cucumber.java.en.When;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class TestStepsFile {
-
+public class CommonSteps {
     @When("^I visit (.*) site$")
     public void I_visit_xxx_site(String siteName) {
         open(siteName);
     }
-
 }
