@@ -16,7 +16,7 @@ Feature: Login
       | <userName> | <password> |
     And I press Login button on the login page
     Then I should see Products page
-    And I should not see logo on the login page
+    And I should see logo on the login page
 
     Examples:
       | userName                | password     |
