@@ -18,5 +18,11 @@ jobs:
       with:
         java-version: '16'
         distribution: 'adopt'
-    - name: Build with Maven
-      run: mvn clean test
+    - name: Run tests
+      run: mvn test
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.4.3
+      with:
+           name: Run Tests
+           path: reports/jest-*.xml
+           reporter: java-junit
