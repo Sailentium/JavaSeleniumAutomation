@@ -19,7 +19,7 @@ jobs:
         java-version: '16'
         distribution: 'adopt'
     - name: Run tests
-      run: mvn test
+      run: mvn clean test
     - name: Test Reporter
       uses: dorny/test-reporter@v1.4.3
       with:
