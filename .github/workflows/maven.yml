@@ -24,6 +24,6 @@ jobs:
         uses: dorny/test-reporter@v1.4.3
         if: success() || failure()
         with:
-          name: Run Tests
+          name: Generate Report
           path: "**/surefire-reports/TEST-*.xml"
           reporter: java-junit
