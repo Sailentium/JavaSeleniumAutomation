@@ -20,9 +20,11 @@ jobs:
           distribution: 'adopt'
       - name: Run tests
         run: mvn test --file pom.xml
-      - name: Test Reporter
-        uses: dorny/test-reporter@v1.4.3
+      - name: Test Report
+        uses: phoenix-actions/test-reporting@v8
+        id: test-report               # Set ID reference for step
+        if: success() || failure()    # run this step even if previous step failed
         with:
-          name: Run Tests
-          path: reports/jest-*.xml
-          reporter: java-junit
+          name: JEST Tests            # Name of the check run which will be created
+          path: reports/jest-*.xml    # Path to test results
+          reporter: jest-junit
