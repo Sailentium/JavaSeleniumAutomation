@@ -5,13 +5,14 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Keys;
 import tests.pages.LoginPage;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class LoginSteps {
     @Then("^I (.*) see logo on the login page$")
@@ -26,16 +27,7 @@ public class LoginSteps {
         LoginPage loginPage = new LoginPage();
         List<Map<String, String>> rows = loginDataTable.asMaps(String.class, String.class);
         for (Map<String, String> loginData : rows) {
-            if (loginData.containsKey("userName")) {
-                $(loginPage.userNameInputLocator).sendKeys(Keys.CONTROL + "A");
-                $(loginPage.userNameInputLocator).sendKeys(Keys.BACK_SPACE);
-                $(loginPage.userNameInputLocator).sendKeys(loginData.get("userName"));
-            }
-            if (loginData.containsKey("password")) {
-                $(loginPage.passwordInputLocator).sendKeys(Keys.CONTROL + "A");
-                $(loginPage.passwordInputLocator).sendKeys(Keys.BACK_SPACE);
-                $(loginPage.passwordInputLocator).sendKeys(loginData.get("password"));
-            }
+            loginPage.fillLoginFrom(loginData);
         }
     }
 
@@ -68,8 +60,19 @@ public class LoginSteps {
     }
 
     @Then("^I should see next '(.*)' error message below password field on the login page$")
-    public void iShouldSeeNextErrorMessageBelowPasswordFieldOnTheLoginPage(String errorMessage) {
+    public void I_should_see_next_xxx_error_message_below_password_field_on_the_login_page(String errorMessage) {
         LoginPage loginPage = new LoginPage();
         $(loginPage.errorMessageFieldLocator).shouldHave(Condition.exactText(errorMessage));
+    }
+
+    @When("^I login with standard user$")
+    public void I_login_with_standard_user() {
+        LoginPage loginPage = new LoginPage();
+        open("https://www.saucedemo.com/");
+        Map<String, String> standard_user = new HashMap<>();
+        standard_user.put("userName", "standard_user");
+        standard_user.put("password", "secret_sauce");
+        loginPage.fillLoginFrom(standard_user);
+        $(loginPage.loginButtonLocator).click();
     }
 }
