@@ -27,6 +27,6 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: Maven Tests
+          name: ${{ matrix.feature_name }}
           path: target/surefire-reports/*.xml
           reporter: java-junit
