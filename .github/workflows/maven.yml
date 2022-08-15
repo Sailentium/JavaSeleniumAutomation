@@ -23,7 +23,6 @@ jobs:
           distribution: 'adopt'
       - name: Login
         run: mvn test --file pom.xml -Dcucumber.filter.tags=@${{ matrix.feature_name }}
-      - name: Test Reporter
         uses: dorny/test-reporter@v1.4.3
         if: success() || failure()
         with:
