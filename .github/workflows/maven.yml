@@ -10,7 +10,7 @@ jobs:
   UI-tests:
     strategy:
       matrix:
-        feature_name: [Products ,Login]
+        feature_name: [Products, Login]
 
     runs-on: ubuntu-latest
 
@@ -21,11 +21,13 @@ jobs:
         with:
           java-version: '16'
           distribution: 'adopt'
-      - name: Login
+      - name: ${{ matrix.feature_name }}
         run: mvn test --file pom.xml -Dcucumber.filter.tags=@${{ matrix.feature_name }}
-        uses: dorny/test-reporter@v1.4.3
-        if: success() || failure()
+      - name: Test Report
+        uses: phoenix-actions/test-reporting@v8
+        id: test-report               
+        if: success() || failure()    
         with:
-          name: Generate Report
-          path: "**/surefire-reports/TEST-*.xml"
-          reporter: java-junit
+          name: JEST Tests            
+          path: reports/jest-*.xml    
+          reporter: jest-junit        
