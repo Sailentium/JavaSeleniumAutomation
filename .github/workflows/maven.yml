@@ -28,5 +28,5 @@ jobs:
         if: success() || failure()
         with:
           name: Generate Report
-          path: "**/surefire-reports/TEST-{{ matrix.feature_name }}.xml"
+          path: "**/surefire-reports/TEST-${{ matrix.feature_name }}.xml"
           reporter: java-junit      
