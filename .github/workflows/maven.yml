@@ -8,6 +8,9 @@ on:
 
 jobs:
   UI-tests:
+    strategy:
+      matrix:
+        feature_name: [Products, Login]
 
     runs-on: ubuntu-latest
 
@@ -18,12 +21,12 @@ jobs:
         with:
           java-version: '16'
           distribution: 'adopt'
-      - name: Run tests
-        run: mvn test --file pom.xml
-      - name: Test Reporter
-        uses: dorny/test-reporter@v1.4.3
-        if: success() || failure()
+      - name: ${{ matrix.feature_name }}
+        run: mvn test --file pom.xml -Dcucumber.filter.tags=@${{ matrix.feature_name }}
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
         with:
-          name: Generate Report
-          path: "**/surefire-reports/TEST-*.xml"
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
           reporter: java-junit

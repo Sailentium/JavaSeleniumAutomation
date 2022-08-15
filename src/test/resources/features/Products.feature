@@ -1,3 +1,4 @@
+@Products
 Feature: Products
 
   Scenario: Standard User should be able to see correct numbers of products
