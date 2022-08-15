@@ -8,6 +8,9 @@ on:
 
 jobs:
   UI-tests:
+    strategy:
+      matrix:
+        feature_name: [ @Products,@Login ]
 
     runs-on: ubuntu-latest
 
@@ -19,9 +22,7 @@ jobs:
           java-version: '16'
           distribution: 'adopt'
       - name: Login
-        run: mvn test --file pom.xml -Dcucumber.filter.tags=@Login
-      - name: Products
-        run: mvn test --file pom.xml -Dcucumber.filter.tags=@Products
+        run: mvn test --file pom.xml -Dcucumber.filter.tags=${{ matrix.feature_name }}
       - name: Test Reporter
         uses: dorny/test-reporter@v1.4.3
         if: success() || failure()
