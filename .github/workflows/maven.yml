@@ -23,10 +23,8 @@ jobs:
           distribution: 'adopt'
       - name: ${{ matrix.feature_name }}
         run: mvn test --file pom.xml -Dcucumber.filter.tags=@${{ matrix.feature_name }}
-      - name: Report
-        uses: dorny/test-reporter@v1
-        if: always()
+      - name: Upload a Test Results
+        uses: actions/upload-artifact@v2.2.2
         with:
-          name: ${{ matrix.feature_name }} - report
-          path: target/surefire-reports/*.xml
-          reporter: java-junit
+          name: Cucumber Report
+          path: target
