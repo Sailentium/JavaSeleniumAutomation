@@ -10,7 +10,7 @@ jobs:
   UI-tests:
     strategy:
       matrix:
-        feature_name: [Products, Login]
+        feature_name: [ Products, Login ]
 
     runs-on: ubuntu-latest
 
@@ -26,5 +26,5 @@ jobs:
       - name: Upload a Test Results
         uses: actions/upload-artifact@v2.2.2
         with:
-          name: Cucumber Report
+          name: ${{ matrix.feature_name }}-report
           path: target
