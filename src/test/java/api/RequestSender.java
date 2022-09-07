@@ -80,18 +80,18 @@ public class RequestSender {
         return response;
     }
 
-    protected String sendPost(String url, String body) {
-        String response = requestMaker(Method.POST, url, body).body().asString();
+    protected Response sendPost(String url, String body) {
+        Response response = requestMaker(Method.POST, url, body);
         try {
             Pattern pattern = Pattern.compile("4\\d{2} [^0-9]]");
-            Matcher matcher = pattern.matcher(response);
+            Matcher matcher = pattern.matcher(response.body().asString());
             if (matcher.find()) {
                 System.out.println("***********Bad response*************");
                 System.out.println(response);
                 System.out.println("************************");
             }
         } catch (NullPointerException e) {
-            response = "No data in the response";
+            throw new NullPointerException("No data in the response");
         }
         return response;
     }

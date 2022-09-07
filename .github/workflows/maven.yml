@@ -1,16 +1,12 @@
 name: Java and Selenide CI run
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [ push, pull_request_target ]
 
 jobs:
   UI-tests:
     strategy:
       matrix:
-        feature_name: [ Products, Login ]
+        feature_name: [ Products, Login, ReqresAPI ]
 
     runs-on: ubuntu-latest
 
