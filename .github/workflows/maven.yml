@@ -1,6 +1,6 @@
 name: Java and Selenide CI run
 
-on: [ push, pull_request_target ]
+on: [ push ]
 
 jobs:
   UI-API-Tests:
