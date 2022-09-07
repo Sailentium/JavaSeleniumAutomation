@@ -3,7 +3,7 @@ name: Java and Selenide CI run
 on: [ push ]
 
 jobs:
-  Selenide-Tests:
+  UI-API-Tests:
     strategy:
       matrix:
         feature_name: [ Products, Login, ReqresAPI ]
