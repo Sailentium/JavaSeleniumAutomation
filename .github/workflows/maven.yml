@@ -1,15 +1,13 @@
 name: Java and Selenide CI run
 
-on: [ push, pull_request_target ]
+on: [ push ]
 
 jobs:
-  UI-tests:
+  UI-API-Tests:
     strategy:
       matrix:
         feature_name: [ Products, Login, ReqresAPI ]
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 16
