@@ -23,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v2.2.2
         with:
           name: ${{ matrix.feature_name }}-report
-          path: target
+          path: ${{ matrix.feature_name }}-report
