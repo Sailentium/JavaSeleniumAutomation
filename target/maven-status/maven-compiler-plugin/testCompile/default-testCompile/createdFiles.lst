@@ -1,0 +1,11 @@
+tests\steps\LoginSteps.class
+api\RequestSender.class
+tests\pages\ProductsPage.class
+tests\pages\LoginPage.class
+tests\steps\apiSteps\ReqresAPISteps.class
+tests\steps\CommonSteps.class
+api\ReqresAPI.class
+CukesFeatureRunnerTest.class
+tests\steps\ProductsSteps.class
+helpers\Common.class
+hooks\Hooks.class
