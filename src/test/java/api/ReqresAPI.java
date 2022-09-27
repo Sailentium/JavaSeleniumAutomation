@@ -26,9 +26,9 @@ public class ReqresAPI extends RequestSender {
         userObject.addProperty("email", userLoginData.get("email"));
         userObject.addProperty("password", userLoginData.get("password"));
 
-        System.out.println("Request for register user" + "\n" + userObject);
-        Response response = sendPost("https://reqres.in/api/register", userObject.toString());
+        System.out.println("Request for login user" + "\n" + userObject);
+        Response response = sendPost("https://reqres.in/api/login", userObject.toString());
         ReqresAPISteps.API_RESPONSE_DATA = response;
-        System.out.println("Response from register user" + "\n" + response.body().asString());
+        System.out.println("Response from login user" + "\n" + response.body().asString());
     }
 }
