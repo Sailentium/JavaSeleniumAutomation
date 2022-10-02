@@ -1,5 +1,4 @@
 import com.codeborne.selenide.Configuration;
-import helpers.Common;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,7 +18,7 @@ public class CukesFeatureRunnerTest {
     public static void executeBeforeTests() {
         Configuration.headless = true;
         Configuration.browserSize = "1600x900";
-        WebDriverManager.chromedriver().driverVersion(Common.getChromeVersion()).setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @AfterClass
