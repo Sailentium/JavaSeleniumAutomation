@@ -3,6 +3,7 @@ package tests.steps;
 import com.codeborne.selenide.Condition;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import tests.pages.ProductsPage;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -31,7 +32,36 @@ public class ProductsSteps {
             $(productsPage.shoppingCardItemLocator).shouldHave(expectedCondition);
         } else if (elementName.equalsIgnoreCase("products filter")) {
             $(productsPage.productsFilterItemLocator).shouldHave(expectedCondition);
+        } else if (elementName.equalsIgnoreCase("cart badge")) {
+            $(productsPage.productsFilterItemLocator).shouldHave(expectedCondition);
         } else
             throw new IllegalArgumentException(String.format("Wrong element name - %s", elementName));
+    }
+
+    @When("^I select '(.*)' filter option on the Products page$")
+    public void iSelectXxxFilterOptionOnTheProductsPage(String filterOption) {
+        ProductsPage productsPage = new ProductsPage();
+        $(productsPage.filterOptionLocator).selectOption(filterOption);
+    }
+
+    @Then("^I should see '(.*)' first product name on the Products page$")
+    public void iShouldSeeFirstProductOnTheProductsPage(String productName) {
+        ProductsPage productsPage = new ProductsPage();
+        $$(productsPage.productItemNameLocator).get(0).shouldHave(Condition.text(productName));
+    }
+
+    @And("^I should see '(.*)' last product name on the Products page$")
+    public void iShouldSeeLastProductOnTheProductsPage(String productName) {
+        ProductsPage productsPage = new ProductsPage();
+        $$(productsPage.productItemNameLocator).get(5).shouldHave(Condition.text(productName));
+    }
+
+    @When("^I add to cart '(.*)' product$")
+    public void iAddToCartXxxProduct(String productName) {
+        ProductsPage productsPage = new ProductsPage();
+        if (productName.equalsIgnoreCase("Sauce Labs Backpack")) {
+            $(productsPage.addToCartSauceLabsBackpackLocator).click();
+        } else
+            throw new IllegalArgumentException(String.format("Wrong product name - %s", productName));
     }
 }
