@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="CukesFeatureRunnerTest" time="27.808" errors="0" skipped="0">
+<testsuite tests="14" failures="0" name="CukesFeatureRunnerTest" time="42.192" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="17.0.4.1+1-LTS-2"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.4.1\bin"/>
     <property name="user.country.format" value="UA"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\AdminJenkins\AppData\Local\Jenkins\.jenkins\workspace\Test"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\AdminJenkins\AppData\Local\Jenkins\.jenkins\workspace\SelenideJavaTests"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\AdminJenkins\AppData\Local\Jenkins\.jenkins\workspace\Test"/>
+    <property name="user.dir" value="C:\Users\AdminJenkins\AppData\Local\Jenkins\.jenkins\workspace\SelenideJavaTests"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="17.0.4.1+1-LTS-2"/>
     <property name="os.arch" value="amd64"/>
@@ -60,16 +60,18 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Login" name="User should be able to see login form" time="2.902"/>
-  <testcase classname="Login" name="User should be able to login with different accepted credentials #1" time="1.856"/>
-  <testcase classname="Login" name="User should be able to login with different accepted credentials #2" time="1.696"/>
-  <testcase classname="Login" name="User should be able to login with different accepted credentials #3" time="6.812"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #1" time="2.084"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #2" time="1.547"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #3" time="1.393"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #4" time="1.892"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #5" time="2.191"/>
-  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #6" time="1.88"/>
-  <testcase classname="Products" name="Standard User should be able to see correct numbers of products" time="1.829"/>
-  <testcase classname="ReqresAPI" name="Should be able to register and login user with API" time="1.726"/>
+  <testcase classname="Login" name="User should be able to see login form" time="4.363"/>
+  <testcase classname="Login" name="User should be able to login with different accepted credentials #1" time="2.587"/>
+  <testcase classname="Login" name="User should be able to login with different accepted credentials #2" time="2.8"/>
+  <testcase classname="Login" name="User should be able to login with different accepted credentials #3" time="7.346"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #1" time="2.486"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #2" time="2.024"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #3" time="3.832"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #4" time="2.281"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #5" time="2.357"/>
+  <testcase classname="Login" name="User should not be able to login with different not accepted credentials #6" time="2.34"/>
+  <testcase classname="Products" name="Standard User should be able to see correct numbers of products" time="3.025"/>
+  <testcase classname="Products" name="Standard User should be able to filter products" time="2.798"/>
+  <testcase classname="Products" name="Standard User should be able to add product to the cart" time="2.12"/>
+  <testcase classname="ReqresAPI" name="Should be able to register and login user with API" time="1.833"/>
 </testsuite>
